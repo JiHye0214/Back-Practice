@@ -15,7 +15,7 @@ public class Main {
         // 다른 거면 멈추고 아니면 알파벳에 해당하는 인덱스에 1씩 더하기
         while (true) {
             char ch = sc.next().charAt(0);
-            if (ch < 'A' || ch > 'Z')
+            if (ch < 'A' || ch > 'Z') // 그냥 ch의 범위를 알파벳으로 해도 되는 구나
                 break;
             arr[(int) ch - 65]++;
         }
