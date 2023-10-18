@@ -9,9 +9,5 @@ public class Main {
 
         sc.close();
     }
-
-    // 함수 생성
-    public static void function(int[] array) {
-    }
 }
 
