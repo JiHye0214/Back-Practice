@@ -8,7 +8,7 @@ public class Main {
         // 함수 너무 쓰고 싶은데 StringBuffer 없이 안 될 거 같아서
         // 그냥 씀 사실 StringBuffer 안 쓰고 싶었는데 말이지...
 
-        StringBuffer str = new StringBuffer();
+        StringBuffer str = new StringBuffer(); // 타입은 buffer라는 독립적인 클래스
 
         Scanner sc = new Scanner(System.in);
         String what = sc.nextLine();
