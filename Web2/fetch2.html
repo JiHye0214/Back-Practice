@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>AJAX - XML</title>
+<style>
+table,th,td {
+  border : 1px solid black;
+  border-collapse: collapse;
+}
+th,td {
+  padding: 5px;
+}
+</style>
+</head>
+<script>
+// 샘플 XML
+var url1 = 'JS/cd_catalog.xml';
+var url2 = 'JS/note.xml';
+</script> 
+<body>
+<h2>AJAX + XML 데이터 1</h2>
+
+<button type="button" onclick="loadCdData()">내 CD 목록</button>
+<button type="button" onclick="TODO">지우기</button>
+<br><br>
+<table id="demo"></table>
+
+<script>
+
+// XML 데이터 읽어오기
+// 1. 텍스트 변환
+// 2. 텍스트 -> 돔 객체 변환 
+// 3. dom method로 뽑아내기
+
+function loadCdData() {
+
+	fetch(url1)
+    .then(response => response.text()) // Promise<string>
+    .then(text => {
+      // xml string => xml DOM 객체
+      let xmlObj = new DOMParser().parseFromString(text, "text/xml");
+      myFunction(xmlObj);
+    })
+    ;
+
+}
+function myFunction(xmlDOM) {
+  
+  const table = [];
+  table.push("<tr><th>Artist</th><th>Title</th></tr>");
+
+  for(x of xmlDOM.getElementsByTagName("CD")){
+    table.push(`
+      <tr>
+        <td>${x.getElementsByTagName('ARTIST')[0].firstChild.nodeValue}</td>
+        <td>${x.getElementsByTagName('TITLE')[0].innerHTML}</td>
+      </tr>
+    `);
+    // getElementsByTagName
+    // 여기서 array 0번째를 하는 이유는 get Element's' 이기 때문이다.
+    // 여러개를 반환하기 때문에 그 중에서 0번째만 필요하니까 !
+
+    // 근데 하나의 CD 뭉탱이에서 들여다 볼 때
+    // ARTIST라는 이름의 태그는 하나뿐이란 말임.?
+    // 태그 이름을 가져올 때는 무조건 getElements를 써야 해서 인덱싱을 해야 하는 건가?
+
+    // firstChild.nodeValue
+    // <강사님 왈> 없으면 element node 가 되니까는 text node 를 꺼내고 싶으면 
+    // 저걸 붙여 줘야 한다. 
+    // innerHTML 해도 됨 --> 하위 element가 없기 때문이다. 
+  }
+
+
+  document.getElementById('demo').innerHTML = table.join('\n');
+	
+}
+</script>
+
+<hr>
+<h2>AJAX + XML 데이터 2</h2>
+
+<p><b>Status:</b> <span id="A1"></span></p>
+<p><b>Status text:</b> <span id="A2"></span></p>
+<p><b>Response:</b> <span id="A3"></span></p>
+
+<button onclick="loadNote(xml_2)">노트 데이터 가져오기</button>
+
+<script>
+
+function loadNote(url) {
+
+	// TODO
+
+}
+</script>
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>

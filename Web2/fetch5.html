@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>수업 과제 - 역사 마스터 정보</title>
+<!-- 내가 했지롱 ! -->
+<style>
+table,th,td {
+  border : 1px solid black;
+  border-collapse: collapse;
+}
+th,td {
+  padding: 5px;
+}
+</style>
+</head>
+<body>
+<h1>서울시 역사 마스터 정보</h1>
+<form>
+start : <input type="text" name="Snum" id="Snum" value="1"/><br>
+end : <input type="text" name="Enum" id="Enum" value="5"/><br><br>
+
+<button type="button" onclick="loadData()">역사 정보 가져오기</button>
+<button type="button" onclick="removeTable()">지우기</button>
+</form>
+<br><br>
+<h2>AJAX + XML</h2>
+<table id="demoXML"></table>
+<hr>
+<h2>AJAX + JSON</h2>
+<table id="demoJSON"></table>
+
+
+<script>
+var api_key = "43736f5a4764646437384a78594475";
+
+function removeTable(){
+	document.getElementById('demoXML').innerHTML = "";
+	document.getElementById('demoJSON').innerHTML = "";
+}
+
+function loadData() {
+
+	const Snum = document.getElementById('Snum').value.trim();
+	const Enum = document.getElementById('Enum').value.trim();
+	let url;
+
+	// XML
+	url = `http://openapi.seoul.go.kr:8088/${api_key}/xml/subwayStationMaster/${Snum}/${Enum}`;
+	fetch(url)
+		.then(response => response.text())
+		.then(text => {
+			let xmlDom = new DOMParser().parseFromString(text, "text/xml");
+			parseXML(xmlDom);
+		})
+	;
+
+	// JSON
+	url = `http://openapi.seoul.go.kr:8088/${api_key}/json/subwayStationMaster/${Snum}/${Enum}`;
+	fetch(url)
+		.then(response => response.json())
+		.then(obj => parseJSON(obj))
+	;
+
+
+} // end loadData()
+
+function parseXML(xmlDOM) {
+
+    const table = [];
+    table.push("<tr><th>역명</th><th>아이디</th><th>호선</th><th>위도</th><th>경도</th></tr>");
+
+	for(row of xmlDOM.getElementsByTagName("row")){
+		table.push(`
+			<tr>
+				<td>${row.getElementsByTagName("STATN_ID")[0].childNodes[0].nodeValue}</td>
+				<td>${row.getElementsByTagName("STATN_NM")[0].childNodes[0].nodeValue}</td>
+				<td>${row.getElementsByTagName("ROUTE")[0].childNodes[0].nodeValue}</td>
+				<td>${row.getElementsByTagName("CRDNT_Y")[0].childNodes[0].nodeValue}</td>
+				<td>${row.getElementsByTagName("CRDNT_X")[0].childNodes[0].nodeValue}</td>
+			</tr>
+		`);
+	}
+    document.getElementById('demoXML').innerHTML = table.join('\n')
+	
+}
+
+function parseJSON(jsonObj){
+    const table = [];
+    table.push("<tr><th>역명</th><th>아이디</th><th>호선</th><th>위도</th><th>경도</th></tr>");
+
+	for(row of jsonObj.subwayStationMaster.row){
+		table.push(`
+			<tr>
+				<td>${row.STATN_ID}</td>
+				<td>${row.STATN_NM}</td>
+				<td>${row.ROUTE}</td>
+				<td>${row.CRDNT_Y}</td>
+				<td>${row.CRDNT_X}</td>
+			</tr>
+		`);
+	}
+
+    document.getElementById('demoJSON').innerHTML = table.join('\n');
+	
+}
+</script>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>
+

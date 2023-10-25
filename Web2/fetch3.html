@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>AJAX - JSON</title>
+<style>
+table,th,td {
+  border : 1px solid black;
+  border-collapse: collapse;
+}
+th,td {
+  padding: 5px;
+}
+</style>
+</head>
+<script>
+var url = 'JS/json_demo.txt';
+</script>
+<!-- 
+JSON 문자열은
+JSON.parse() 를 사용하면 JavaScript object 로 손쉽게 변환된다
+ -->
+<body>
+<h2>AJAX + JSON</h2>
+<button type="button" onclick="loadPet()">애완동물 목록 보기</button>
+<button type="button" onclick="clearTable()">지우기</button>
+<br><br>
+<table>
+<tr>
+	<th>이름</th>
+	<td id="name"></td>
+</tr>
+<tr>
+	<th>나이</th>
+	<td id="age"></td>
+</tr>
+<tr>
+	<th>애완동물목록</th>
+	<td id="pets"></td>
+</tr>
+</table>
+
+<script>
+// JSON 데이터 읽어오기 
+
+function loadPet(){	
+
+	fetch(url)
+		.then(response => response.json())   // Promise<object>
+            // ⭐⭐⭐ object로 반환 -> 좌항들은 id가 됨
+		.then(obj => {
+			document.getElementsByClassName('name').innerHTML = obj.name;
+			document.getElementById('age').innerHTML = obj.age;
+
+			const result = [];
+			for(p of obj.pets){
+				result.push(`${p.animal} : ${p.name}`)
+			}
+			document.getElementById('pets').innerHTML =
+				`<div>${result.join('<br>')}</div>`;
+		})
+		;
+	
+}
+
+function clearTable(){
+
+	//child 를 지우는 초 간편한 
+	document.getElementById('name').innerHTML = "";
+	document.getElementById('age').innerHTML = "";
+	document.getElementById('pets').innerHTML = "";
+
+	
+}
+
+</script>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>
+
