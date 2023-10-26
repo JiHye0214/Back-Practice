@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>jQuery Selector</title>
+<style>
+  div {
+    background: yellow;
+    border: 1px solid #AAA;
+    width: 80px;
+    height: 80px;
+    margin: 0 5px;
+    float: left;
+  }
+  div.colored {
+    background: green;
+  }
+  /* 클래스를 html에 지정해 주지 않아도 css에서 지정 가능함 */
+  /* 대신 이제 jquery에서 효과를 씌워줘야지 */
+  div.shutup{
+    background-color: pink;
+  }
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+
+<script>
+
+// TODO
+
+</script>
+</head>
+<body>
+
+<button id="run">Run</button>
+ 
+<div></div>
+<div id="mover"></div>
+<div></div>
+
+<script>
+
+function animateIt(){
+  $("#mover").slideToggle("slow", animateIt);
+}
+
+animateIt();
+
+$("#run").click(function(){
+  $("div:animated").toggleClass("shutup");
+  // 움직이는 div에 css를 씌우는데 toggleClass니까 씌워져 있으면 복구해라
+});
+
+</script>
+
+</body>
+</html>
