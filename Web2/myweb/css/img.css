@@ -1,0 +1,75 @@
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header {
+    height: 120px;
+    background-color: #8ed2fc;
+}
+
+header > div {
+    flex-direction: column;
+    color: white;
+}
+
+header > div > div:last-child{
+    font-size: 40px;    
+}
+header > div > div:first-child{
+    font-size: 15px;
+}
+
+section {
+    background-color: rgb(219, 245, 255);
+    height: calc(100vh - 120px); 
+    /* calc 무조건 연산 기호 좌우에 공백 필수임 아니면 니처럼 에러남 */
+}
+
+section > div {
+    flex-direction: column;
+    background-color: white;
+    width: 1100px;
+    height: 500px;
+    border-radius: 50px;
+}
+
+section > div > div {
+    font-size: 30px;
+    background-color: #ff9191;
+    color: white;
+    border-radius: 100px;
+    text-align: center;
+    width: 330px;
+    padding: 5px 0;
+    margin: 50px 0;
+}
+
+section > div >  ul {
+  flex-wrap: wrap;
+  width: 1100px;
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 110px;
+}
+
+section > div > ul > li {
+  height: 200px;
+  list-style: none;
+}
+
+section > div > ul > li > button {
+    font-size: 20px;
+    width: 150px;
+    height: 120px;
+    border: 0;
+    margin: 30px;
+    background-color: white;
+}
