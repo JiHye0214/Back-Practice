@@ -3,12 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>KIA - let's V12</title>
     <link rel="stylesheet" href="./css/common.css">
     <link rel="stylesheet" href="./css/main.css">
     <script src="./js/login.js"></script>
+    <script src="./js/main.js"></script>
 </head>
-<body>
-    <div onclick="goToLogIn()" style="height: 100vh; background-color: pink;">메인페이지</div>
+<body onclick="goToLogIn()">
+    <div id="wrapper">
+        <!-- header -->
+        <header>
+            <div id="header-wrapper">
+                <img src="./img/kia.jpg" width="200px">
+                <div id="menu-wrapper">
+                    <ul id="menu">
+                        <li><span>TIGERS</span></li>
+                        <li><span>TICKET</span></li>
+                        <li><span>CONNECT</span></li>
+                        <li><span>SALE</span></li>
+                        <li id="search"><input type="text"><img src="./img/search.png" width="25px"></li>
+                        <li id="mypage"><img src="./img/user.png" width="33px"></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <!-- section -->
+        <section>
+            <div id="sec-title">TODAY'S</div>
+            <div class="today" id="today-play"><span>PLAY</span></div>
+            <div class="today" id="today-entry"><span>ENTRY</span></div>
+            <div class="today" id="today-weather"><span>WEATHER</span></div>
+            <div class="today" id="today-picture"><span>CUTE</span></div>
+            <div class="today" id="today-news"><span>NEWS</span></div>
+        </section>
+    </div>
 </body>
 </html>

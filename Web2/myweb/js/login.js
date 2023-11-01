@@ -1,6 +1,8 @@
 function goToLogIn() {
-  alert("로그인 먼저 하세요");
-  location.href = "http://127.0.0.1:5501/Web2/myweb/signForm.html";
+  answer = confirm("로그인 먼저 하세요");
+  if(answer == true){
+    location.href = "http://127.0.0.1:5501/Web2/myweb/signForm.html";
+  }
 }
 
 function BTNlogin() {
@@ -24,6 +26,5 @@ function BTNlogin() {
   }
   
   alert(" 환영합니다");
-  // 대체 왜 이동을 안 하는 거지
   return true;
 }

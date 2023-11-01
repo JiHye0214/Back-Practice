@@ -1,0 +1,123 @@
+:root {
+    --tigers-color: #EB0029;
+  }
+
+#wrapper {
+    width: 1200.6px;
+    overflow: hidden;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/* header */
+header #header-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    padding: 70px 0 30px 0;
+    border-bottom: 2px dashed rgb(132, 132, 132);
+}
+
+header #menu-wrapper{
+    height: 50px;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header #menu {
+    list-style: none;
+    display: flex;
+}
+
+header #menu li {
+    margin-left: 70px;
+    font-size: 25px;
+}
+
+header #menu li span:hover{
+    cursor: pointer;
+    border-bottom: 5px solid var(--tigers-color);
+}
+
+header #menu li#search input {
+    background-color: rgb(230, 230, 230);
+    border: none;
+    border-radius: 5px;
+    height: 25px;
+    width: 160px;
+    top: -3px;
+    position:relative
+}
+
+header #menu li#search img{
+    padding-left: 15px;
+    top: 3px;
+    position:relative
+}
+
+header #menu li#mypage {
+    margin-left: 15px;
+    top: 3px;
+    position:relative
+}
+
+/* section */
+section {
+    margin: 20px 0;
+    position: relative;
+}
+section #sec-title {
+    margin-bottom: 20px;
+    font-size: 50px;
+    font-weight:bolder;
+    color: var(--tigers-color);
+}
+
+section .today {
+    border: 2px solid rgb(132, 132, 132);
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+section div span {
+    font-size: 40px;
+    margin: 0 30px;
+}
+
+section #today-play {
+    height: 150px;
+    width: 850px;
+}
+
+section #today-entry {
+    height: 150px;
+    width: 850px;
+}
+
+section #today-picture {
+    width: 327px;
+    height: 318.5px;
+    position: absolute;
+    top: 93px;
+    left: 869px;
+}
+
+section #today-weather {
+    height: 130px;
+    width: 589px;
+}
+
+section #today-news {
+    height: 130px;
+    width: 589px;
+    position: absolute;
+    top: 431px;
+    left: 607px;
+}
+
