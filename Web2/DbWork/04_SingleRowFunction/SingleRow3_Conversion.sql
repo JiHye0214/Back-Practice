@@ -1,8 +1,9 @@
 -- MySQL 은 필요시 string -> number, 혹은 number -> string 으로 묵시적 형변환 수행
-SELECT 1 + '1';
-SELECT concat(1, '1');
 
-SELECT 1 + CAST('1' AS SIGNED);  -- 내부적으론 이와 같이 동작
+SELECT 1 + '1';
+SELECT concat(1 , '1');
+
+SELECT 1 + CAST('1' AS signed); 
 
 -- 묵시적 형변환은 편한것 같지만, 
 -- 튜닝에서 뜻하지 않은 성능저하를 가져올수 있다.
@@ -11,7 +12,7 @@ SELECT 1 + CAST('1' AS SIGNED);  -- 내부적으론 이와 같이 동작
 -- CAST(expr AS type) 
 -- CONVERT(expr, type)
 
-SELECT 38.8, CAST(38.8 AS CHAR), CONVERT(38.8, CHAR);
+SELECT 38.8, CAST(38.8 AS CHAR), CONVERT(38.8, char);
 
 -- BINARY[(N)]
 -- CHAR[(N)] [charset_info]
@@ -33,9 +34,8 @@ SELECT now(), YEAR(now()), MONTH(now()), DAY(now()), weekday(now()), HOUR(now())
 -- DATE_FORMAT() 함수
 -- https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html
 
-SELECT now(), DATE_FORMAT(now(), '%Y%m%d');
-SELECT now(), DATE_FORMAT(now(), '%Y-%m-%d %H:%i:%s');
-SELECT now(), DATE_FORMAT(now(), '%Y년%m월%d일 %H시%i분%s초');
+SELECT now(), date_format(now(), '%Y%m%d');
+SELECT now(), date_format(now(), '%Y-%m-%d %H:%i:%s');
 
 -- ################################################
 -- format() 함수
@@ -46,8 +46,9 @@ SELECT now(), DATE_FORMAT(now(), '%Y년%m월%d일 %H시%i분%s초');
 
 -- 숫자 세자리마다 콤마 찍기
 SELECT 1234567, format(1234567, 0);
-SELECT format(250250.5634, 0);
+SELECT format(250250.5634, 0); -- 반올림
 SELECT format(250250.5634, 2); -- 250,500.56
+
 
 
 

@@ -3,10 +3,12 @@
 -- rollback : 원래의 데이터 상태로 복구
 
 -- 테이블과 데이터 준비
+
 DESC phonebook;
 SELECT * FROM phonebook ;
 
 DROP TABLE IF EXISTS phonebook; 
+# 여기 대고 Ctrl + Enter 누르면 바로 phonebook 사라진다 조심해라
 
 -- 기본적으로 MySQL 은 auto-commit 이다
 -- DML 은 실행 즉시 물리적인 데이터에 반영된다.
@@ -16,24 +18,23 @@ DROP TABLE IF EXISTS phonebook;
 
 # 이것도 주석이다
 
-SELECT @@autocommit;  -- 현재 auto COMMIT 활성화 여부 1: 활성화  0:비활성화
+SELECT @@autocommit; -- 현재 auto COMMIT 활성화 여부 1: 활성화  0:비활성화
 
 SET @@autocommit = 0; -- auto COMMIT 비활성화
 
-SELECT * FROM phonebook; 
+SELECT * FROM phonebook;
 
-DELETE FROM phonebook WHERE id = 18;
-
--- rollback 하기 전, 마지막으로 commit 한 지점까지 복구 가능하다
-ROLLBACK;
-
-INSERT INTO phonebook (name, phonenum, email)
-VALUES('헐크', '4444-3333', 'hulk@incredible.com');
-
-SELECT * FROM phonebook; 
+DELETE FROM phonebook WHERE id = 13; -- UPDATE ROWS : 1
+									 -- 저장 안 됨 
+ROLLBACK; -- 마지막으로 COMMIT 지점까지 복구 가능
 
 INSERT INTO phonebook (name, phonenum, email)
-VALUES('블랙위도우', '111-222-333', 'black@widow.com');
+VALUES('조대현', '010-2024-0000', 'babytiger@tigers.com'); -- UPDATE ROWS : 1
 
-COMMIT;
+SELECT * FROM phonebook; -- 저장 된 거 아니다 
+
+INSERT INTO phonebook (name, phonenum, email)
+VALUES('김동헌', '010-2023-2020', 'dong_honey@heroes.com'); -- UPDATE ROWS : 1
+
+COMMIT; -- DML 명령을 수행한 모든 변경내역 저장
 

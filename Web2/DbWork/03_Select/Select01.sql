@@ -1,47 +1,25 @@
 SELECT 'abcde';
-SELECT '안녕하세요', '화요일', 100 + 10;
+SELECT '안녕하세요', '목요일입니다', 100+10; -- 그냥 넣기 가능
 
--- 이클립스 단축키 사용
--- Lower case: CTRL+SHIFT+Y
--- Upper case: CTRL+SHIFT+X
--- 
--- 
--- SELECT - 데이터 조회/질의
--- SELECT [컬럼명 또는 표현식] FROM [테이블명, 뷰명]
+SELECT * FROM phonebook ; -- * : 모든 컬럼 의미(전체선택자 느낌)
 
--- '모든 컬럼' 조회 : * 사용
-
-SELECT * FROM phonebook; 
-
--- 원하는 컬럼만 조회
-SELECT * FROM t_emp;
-
-SELECT empno, ename FROM t_emp;
-SELECT ename, empno, empno, empno, 100, '하하' FROM t_emp;
+SELECT * FROM t_emp ;
 
 SELECT * FROM t_student ;
--- 컬럼 별칭(alias) 사용하여 출력
-SELECT studno 학번, name 이름 FROM t_student ;
+SELECT studno, name FROM t_student ; -- 명시한 그대로 나옴
 
-SELECT studno "학생 학번", name AS 이름
+SELECT studno 학번, name 이름 FROM t_student ; -- 별명 짓기 가능 
+SELECT studno "학생 학번", name AS 이름 -- 띄어쓰기 하고 싶으면 따옴표 씌우기 / AS 이용 가능 
 FROM t_student 
-;
 
+SELECT DISTINCT  deptno1 FROM t_student; -- DISTINCT : 중복 불허
 
-SELECT DISTINCT deptno1 FROM t_student;
+SELECT 'a' + 'b'; -- 0 /ab 아님
+SELECT concat('a', 'b'); -- concat()
 
-
-SELECT 'a' + 'b';  -- 0 ??
-
--- 문자열 연결 concat()
-SELECT concat('a', 'b');
-
+-- null 값에 민감해지자
 SELECT * FROM t_professor;
-SELECT concat(name, '-', POSITION) "교수님목록" FROM t_professor;
 
-
-
-
-
-
+-- content를 바꾸면 필드명도 바뀌기 때문에 별명을 지어주면 보기 좋다.
+SELECT concat(name, '-', POSITION) "교수님목록" FROM t_professor; 
 
