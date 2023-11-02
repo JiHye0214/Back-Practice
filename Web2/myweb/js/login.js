@@ -1,10 +1,3 @@
-function goToLogIn() {
-  answer = confirm("로그인 먼저 하세요");
-  if(answer == true){
-    location.href = "http://127.0.0.1:5501/Web2/myweb/signForm.html";
-  }
-}
-
 function BTNlogin() {
   const frm = document.forms["form"];
 

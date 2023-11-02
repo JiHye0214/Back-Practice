@@ -116,6 +116,90 @@ section #today-news {
   left: 607px;
 }
 
+/* section - play */
+section #play-wrapper {
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+}
+
+section #play-wrapper h1 {
+  margin: 0 30px;
+}
+
+section #play-wrapper #play-inform {
+  margin-left: 50px;
+  line-height: 35px;
+  color: rgb(53, 50, 50);
+}
+
+/* section - entry */
+section #today-entry #line-up {
+  background-color: rgb(255, 192, 203);
+  height: 130px;
+  width: 650px;
+  display: flex;
+  justify-content: center;
+}
+
+section #today-entry #line-up .entry-item {
+  background-color: rgb(255, 204, 204);
+  width: 65px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  border: 1px solid black;
+}
+
+/* section - weather */
+section #weather-wrapper {
+  background-color: rgb(218, 218, 218);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10px;
+}
+
+section #weather-wrapper > h3 {
+  display: inline-block;
+}
+
+section #weather-wrapper > form > input{
+  margin: 0 10px;
+  width: 150px;
+  padding: 5px 0 5px 15px;
+  border: 2px solid rgb(172, 172, 172);
+  border-radius: 15px;
+}
+
+section #weather-wrapper > form > button {
+  border-radius: 15px;
+  border: 2px solid rgb(172,172,172);
+  height: 31px;
+  width: 32px;
+}
+
+section #weather-wrapper > form > button:hover {
+  background-color: white;
+  cursor: pointer;
+}
+
+section #weather-wrapper > table {
+  position: absolute;
+  top: 516px;
+  z-index: 1;
+}
+
+table,th,td {
+  border : 1px solid black;
+  background-color: rgb(242, 242, 242);
+  border-collapse: collapse;
+  font-size: small;
+}
+th,td {
+  padding: 7px 10px;
+}
+
 /* section - carousel banner */
 
 section #today-picture {
@@ -144,7 +228,7 @@ section #today-picture {
   width: 100%;
   display: flex;
   background-color: pink;
-  transition: transform 2s ease-in-out;
+  transition: transform 1s ease-in-out;
   padding: 0;
   margin: 0;
 }
@@ -175,5 +259,17 @@ section #today-picture {
 
 #slide-banner > #slide-button > button:hover{
   background-color: rgb(234, 149, 59);
+  cursor: pointer;
+}
+
+/* section - news */
+section #today-news #news-wrapper h5 {
+  line-height: 1px;
+  color: silver;
+}
+
+section #today-news #news-wrapper h5:hover {
+  color: rgb(94, 94, 94);
+  text-decoration: underline;
   cursor: pointer;
 }

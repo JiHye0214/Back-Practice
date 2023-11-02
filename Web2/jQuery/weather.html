@@ -1,5 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>AJAX</title>
+<style>
+table,th,td {
+  border : 1px solid black;
+  border-collapse: collapse;
+  background-color: pink;
+}
+th,td {
+  padding: 5px;
+}
+</style>
+</head>
+<body>
+<h3>현재 날씨</h3>
+<form>
+	<input type="text" name="area" id="area" value="잠실종합운동장"/><br><br>
+	<button id="btn_load" type="button">날씨</button>
+	</form>
+<table id="demoXML"></table>
 
-// heather api
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+<script>
+
 var api_key = "43736f5a4764646437384a78594475";
  
 $(document).ready(function(){
@@ -36,35 +61,6 @@ $(document).ready(function(){
   }
   document.getElementById("demoXML").innerHTML = table;
 }
-
-
-// picture carousel
-let slideBannerIndex = 0;
-const $slideBanner = document.querySelector("#slide-banner > ul");
-const $slideBannerItem = document.querySelectorAll("#slide-banner > ul > li");
-const $slideBannerPrevBtn = document.querySelector(".slide-prev-btn");
-const $slideBannerNextBtn = document.querySelector(".slide-next-btn");
-const slideBannerWidth = $slideBanner.clientWidth;
-
-const prevSlideBanner = () => {
-  if (slideBannerIndex <= 0) {
-    slideBannerIndex = $slideBannerItem.length - 1;
-  } else {
-    slideBannerIndex--;
-  }
-  console.log(slideBannerWidth * slideBannerIndex);
-  $slideBanner.style.transform = `translateX(-${slideBannerWidth * slideBannerIndex}px)`;
-};
-
-const nextSlideBanner = () => {
-  if (slideBannerIndex >= $slideBannerItem.length - 1) {
-    slideBannerIndex = 0;
-  } else {
-    slideBannerIndex++;
-  }
-  console.log(slideBannerWidth * slideBannerIndex);
-  $slideBanner.style.transform = `translateX(-${slideBannerWidth * slideBannerIndex}px)`;
-};
-
-$slideBannerPrevBtn.addEventListener("click", prevSlideBanner);
-$slideBannerNextBtn.addEventListener("click", nextSlideBanner);
+</script>
+</body>
+</html>
