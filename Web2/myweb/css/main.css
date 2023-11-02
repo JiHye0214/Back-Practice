@@ -154,3 +154,26 @@ section #today-picture {
   height: 295px;
   background-color: rgb(152, 83, 83);
 }
+
+#slide-banner > #slide-button {
+  position: absolute;
+  left: 105px;
+  top: 295px;
+  z-index: 1;
+}
+
+#slide-banner > #slide-button > button {
+  height: 35px;
+  width: 50px;
+  /* position: absolute; */
+  background-color: var(--tigers-color);
+  color: white;
+  font-size: 15px;
+  border: none;
+  border-radius: 20px;
+}
+
+#slide-banner > #slide-button > button:hover{
+  background-color: rgb(234, 149, 59);
+  cursor: pointer;
+}
