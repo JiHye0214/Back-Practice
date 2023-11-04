@@ -14,7 +14,7 @@ SELECT avg(bonus), avg(ifnull(bonus, 0)) FROM t_professor;
 -- SELECT 절에 그룹함수 아닌 것과 그룹함수는 같이 올수는 없다.  이 경우 그룹함수가 아닌 것들은 GROUP BY 로 묶여야 할 것이다.
 
 SELECT * FROM t_professor ;
-SELECT DEPTNO, avg(pay)  FROM t_professor GROUP BY DEPTNO ; 
+SELECT DEPTNO, avg(pay)  FROM t_professor GROUP BY DEPTNO ; -- select에는 같이 써주는데 이제 GROUP by에 그룹함수가 아닌 애들을 써줘야지
 
 -- #5101)연습
 -- t_professor 테이블 : 학과별(deptno) 그리고 직급별(position)로 교수들의 평균 급여를 계산하여 출력하세요
