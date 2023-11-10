@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Back-Practice.iml" filepath="$PROJECT_DIR$/.idea/Back-Practice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Bt01_DI_Bean.main.iml" filepath="$PROJECT_DIR$/.idea/modules/Bt01_DI_Bean.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Bt09_MVC.main.iml" filepath="$PROJECT_DIR$/.idea/modules/Bt09_MVC.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/Jungol/Jungol.iml" filepath="$PROJECT_DIR$/Jungol/Jungol.iml" />
     </modules>
   </component>
